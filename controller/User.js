@@ -13,7 +13,7 @@ const register = async(req,res)=>{
                 name: req.body.name,
                 password: securePass
             });
-            res.status(500).json({error: false, data: check.name})
+            res.status(200).json({error: false, data: check.name})
           
         }
         
