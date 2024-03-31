@@ -32,7 +32,7 @@ const login = async(req,res)=>{
      if(!comparePass){
         return res.status(400).json({error: true, data: "Please try to login with correct credentials"});
      }
-     res.status(200).json({error: false, data: user.name});
+     res.status(200).json({error: false, data: user._id});
 
     } catch (error) {
         res.status(500).json({error: true, data: error.message})
