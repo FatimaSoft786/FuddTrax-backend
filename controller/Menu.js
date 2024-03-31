@@ -34,7 +34,7 @@ const FetchMenu = async(req,res)=>{
 
 const FetchMenuDetails = async(req,res)=>{
   try {
-            let menu = await model.findOne({day_menu: req.body.day_name});
+            let menu = await model.findOne({day_name: req.body.day_name});
             res.status(200).json({error: false, data: menu}) 
     } catch (error) {
         res.status(500).json({error: true, data: error.message});
