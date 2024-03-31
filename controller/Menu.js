@@ -32,6 +32,15 @@ const FetchMenu = async(req,res)=>{
     }
 };
 
+const FetchMenuDetails = async(req,res)=>{
+  try {
+            let menu = await model.findOne({day_menu: req.body.day_name});
+            res.status(200).json({error: false, data: menu}) 
+    } catch (error) {
+        res.status(500).json({error: true, data: error.message});
+    }
+}
+
 
  const updateMenu = async (req, res) => {
     const { id } = req.params;
@@ -59,5 +68,6 @@ module.exports = {
     AddMenu,
     FetchMenu,
     deleteMenu,
-    updateMenu
+    updateMenu,
+    FetchMenuDetails
 }
