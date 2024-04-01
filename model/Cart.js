@@ -7,6 +7,9 @@ const cartSchema = new mongoose.Schema({
         type: String,
         required: true
     },
+    meal_price: {
+        type: String
+    },
     meals: [{
         menu: {
             type: String,

@@ -25,7 +25,6 @@ const FetchMenu = async(req,res)=>{
     try {
         console.log(req.body);
             let menu = await model.find({week: req.body.week});
-            console.log(menu);
             res.status(200).json({error: false, data: menu}) 
     } catch (error) {
         res.status(500).json({error: true, data: error.message});
