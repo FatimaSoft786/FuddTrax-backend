@@ -20,6 +20,19 @@ const createOrder = async (req, res) => {
    }
   };
 
+ const fetchAllOrders = async(req,res)=>{
+   try {
+   const result = await model.find()
+   if(result){
+res.status(200).json({error: false, orders: result})
+   }else{
+    res.status(200).json({error: false, orders: "No orders found"})
+   }
+   } catch (error) {
+    res.status(500).json({error: false, orders: error.message})
+   }
+  };
+
  const updateOrder = async (req, res) => {
     const { id } = req.params;
     try {
@@ -46,6 +59,7 @@ const createOrder = async (req, res) => {
     createOrder,
     fetchOrder,
     updateOrder,
-    deleteOrder
+    deleteOrder,
+    fetchAllOrders
 
   }

@@ -23,7 +23,7 @@ const AddMenu = async(req,res)=>{
 
 const FetchMenu = async(req,res)=>{
     try {
-        console.log(req.body);
+       
             let menu = await model.find({week: req.body.week});
             res.status(200).json({error: false, data: menu}) 
     } catch (error) {

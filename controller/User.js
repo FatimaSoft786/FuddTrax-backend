@@ -38,8 +38,22 @@ const login = async(req,res)=>{
         res.status(500).json({error: true, data: error.message})
     }
 };
+const fetchUsers = async(req,res)=>{
+    try {
+        const doc = await model.find()
+        if(doc){
+res.status(200).json({error: false, users: doc})
+        }else{
+            res.status(400).json({error: true, users: "User not found"})
+        }
+        
+    } catch (error) {
+        res.status(500).json({error: true, users: error.message}) 
+    }
+}
 
 module.exports = {
     register,
-    login
+    login,
+    fetchUsers
 };
